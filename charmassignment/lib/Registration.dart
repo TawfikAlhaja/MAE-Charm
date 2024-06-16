@@ -87,7 +87,7 @@ class _RegistrationState extends State<Registration> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xFFFF412F),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
@@ -111,7 +111,7 @@ class _RegistrationState extends State<Registration> {
               keyboardType: TextInputType.emailAddress,
               decoration: const InputDecoration(
                 labelText: 'Email',
-                prefixIcon: Icon(Icons.email, color: Colors.red),
+                prefixIcon: Icon(Icons.email, color: Color(0xFFFF412F)),
                 border: OutlineInputBorder(),
               ),
             ),
@@ -120,7 +120,7 @@ class _RegistrationState extends State<Registration> {
               controller: fullNameController,
               decoration: const InputDecoration(
                 labelText: 'Full Name',
-                prefixIcon: Icon(Icons.person, color: Colors.red),
+                prefixIcon: Icon(Icons.person, color: Color(0xFFFF412F)),
                 border: OutlineInputBorder(),
               ),
             ),
@@ -130,7 +130,7 @@ class _RegistrationState extends State<Registration> {
               obscureText: _isObscuredPassword,
               decoration: InputDecoration(
                 labelText: 'Password',
-                prefixIcon: const Icon(Icons.lock, color: Colors.red),
+                prefixIcon: const Icon(Icons.lock, color: Color(0xFFFF412F)),
                 suffixIcon: IconButton(
                   icon: Icon(
                     _isObscuredPassword ? Icons.visibility : Icons.visibility_off,
@@ -147,7 +147,7 @@ class _RegistrationState extends State<Registration> {
               obscureText: _isObscuredConfirmPassword,
               decoration: InputDecoration(
                 labelText: 'Confirm Password',
-                prefixIcon: const Icon(Icons.lock, color: Colors.red),
+                prefixIcon: const Icon(Icons.lock, color: Color(0xFFFF412F)),
                 suffixIcon: IconButton(
                   icon: Icon(
                     _isObscuredConfirmPassword ? Icons.visibility : Icons.visibility_off,
@@ -162,7 +162,7 @@ class _RegistrationState extends State<Registration> {
             ElevatedButton(
               onPressed: _registerUser,
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white, backgroundColor: Colors.red,
+                foregroundColor: Colors.white, backgroundColor: Color(0xFFFF412F),
                 minimumSize: const Size(double.infinity, 50), // Make the button stretch
               ),
               child: const Text('Create Account'),

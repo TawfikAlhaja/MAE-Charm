@@ -31,7 +31,7 @@ class Coupons extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xFFFF412F),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
@@ -79,7 +79,7 @@ class Coupons extends StatelessWidget {
             );
           },
           style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.white, backgroundColor: Colors.red,
+            foregroundColor: Colors.white, backgroundColor: Color(0xFFFF412F),
             minimumSize: const Size(double.infinity, 50),
           ),
         ),

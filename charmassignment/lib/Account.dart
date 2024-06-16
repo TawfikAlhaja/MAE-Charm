@@ -97,7 +97,7 @@ class _AccountState extends State<Account> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xFFFF412F),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
@@ -152,13 +152,13 @@ class _AccountState extends State<Account> {
               icon: const Icon(Icons.camera_alt, color: Colors.white),
               label: const Text('Change Profile Picture', style: TextStyle(color: Colors.white)),
               onPressed: _changeProfilePicture,
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+              style: ElevatedButton.styleFrom(backgroundColor: Color(0xFFFF412F)),
             ),
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: _updateProfile,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
+                backgroundColor: Color(0xFFFF412F),
                 minimumSize: const Size.fromHeight(50),
               ),
               child: const Text('Update Profile', style: TextStyle(color: Colors.white, fontSize: 16)),
@@ -178,11 +178,11 @@ class _AccountState extends State<Account> {
           content: const Text('Are you sure you want to log out?'),
           actions: <Widget>[
             TextButton(
-              child: const Text('Cancel', style: TextStyle(color: Colors.red)),
+              child: const Text('Cancel', style: TextStyle(color: Color(0xFFFF412F))),
               onPressed: () => Navigator.of(context).pop(),
             ),
             TextButton(
-              child: const Text('Log Out', style: TextStyle(color: Colors.red)),
+              child: const Text('Log Out', style: TextStyle(color: Color(0xFFFF412F))),
               onPressed: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).pushAndRemoveUntil(

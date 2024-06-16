@@ -1,3 +1,4 @@
+import 'package:charmassignment/RedeemCoupon.dart';
 import 'package:charmassignment/Reviews.dart';
 import 'package:charmassignment/VendorAccount.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +72,7 @@ class _VendorHomeState extends State<VendorHome> {
               },
               child: CircleAvatar(
                 backgroundImage: _profilePhotoUrl.isEmpty
-                    ? const AssetImage('assets/Profilephoto.png')
+                    ? const AssetImage('assets/images/Profilephoto.png')
                     : NetworkImage(_profilePhotoUrl) as ImageProvider,
               ),
             ),
@@ -100,7 +101,7 @@ class _VendorHomeState extends State<VendorHome> {
               icon: Icons.qr_code_scanner,
               label: 'Redeem Coupon',
               onPressed: () {
-                //Navigator.of(context).push(MaterialPageRoute(builder: (_) => RedeemCoupon(uid: currentUser!.uid)));
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) => RedeemCoupon(uid: currentUser!.uid)));
               },
             ),
             const SizedBox(height: 20),

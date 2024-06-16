@@ -90,7 +90,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red, // Red background for the entire screen
+      backgroundColor: const Color(0xFFFF412F), // Red background for the entire screen
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end, // Push the content to the bottom
@@ -116,7 +116,7 @@ class _LoginState extends State<Login> {
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
-                          color: Colors.red,
+                          color: Color(0xFFFF412F),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -135,7 +135,7 @@ class _LoginState extends State<Login> {
                         controller: _emailController,
                         decoration: InputDecoration(
                           labelText: 'Email',
-                          prefixIcon: const Icon(Icons.email, color: Colors.red),
+                          prefixIcon: const Icon(Icons.email, color: Color(0xFFFF412F)),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -147,7 +147,7 @@ class _LoginState extends State<Login> {
                         obscureText: _isObscured,
                         decoration: InputDecoration(
                           labelText: 'Password',
-                          prefixIcon: const Icon(Icons.lock, color: Colors.red),
+                          prefixIcon: const Icon(Icons.lock, color: Color(0xFFFF412F)),
                           suffixIcon: IconButton(
                             icon: Icon(
                               _isObscured ? Icons.visibility : Icons.visibility_off,
@@ -181,7 +181,7 @@ class _LoginState extends State<Login> {
                             },
                             child: const Text(
                               'Create Account',
-                              style: TextStyle(color: Colors.red),
+                              style: TextStyle(color: Color(0xFFFF412F)),
                             ),
                           ),
                         ],
@@ -190,7 +190,7 @@ class _LoginState extends State<Login> {
                       ElevatedButton(
                         onPressed: _login,  // Call the login function
                         style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white, backgroundColor: Colors.red, // Text color
+                          foregroundColor: Colors.white, backgroundColor: Color(0xFFFF412F), // Text color
                           minimumSize: const Size(double.infinity, 50),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),

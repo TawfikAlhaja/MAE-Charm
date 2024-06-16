@@ -115,7 +115,7 @@ class _CustomerHomeState extends State<CustomerHome> {
         children: <Widget>[
           Container(
             height: MediaQuery.of(context).size.height / 4,
-            color: Colors.red,
+            color: Color(0xFFFF412F),
             padding:
                 const EdgeInsets.only(left: 20, right: 20, top: 50, bottom: 10),
             child: Column(
@@ -168,7 +168,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                     filled: true,
                     fillColor: Colors.white,
                     hintText: 'Search',
-                    prefixIcon: const Icon(Icons.search, color: Colors.red),
+                    prefixIcon: const Icon(Icons.search, color: Color(0xFFFF412F)),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide.none,
@@ -187,13 +187,13 @@ class _CustomerHomeState extends State<CustomerHome> {
                         padding: const EdgeInsets.symmetric(horizontal: 4),
                         child: ChoiceChip(
                           backgroundColor: selectedCategory == category
-                              ? Colors.red
+                              ? Color(0xFFFF412F)
                               : Colors.white,
                           label: Text(category,
                               style: TextStyle(
                                   color: selectedCategory == category
                                       ? Colors.white
-                                      : Colors.red)),
+                                      : Color(0xFFFF412F))),
                           selected: selectedCategory == category,
                           onSelected: (bool selected) {
                             setState(() {

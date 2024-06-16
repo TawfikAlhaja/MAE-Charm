@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'Coupons.dart';
 
 class MerchantDetails extends StatefulWidget {
@@ -150,13 +151,21 @@ class _MerchantDetailsState extends State<MerchantDetails> {
     }
   }
 
+  void _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return isLoading
         ? const Scaffold(body: Center(child: CircularProgressIndicator()))
         : Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.red,
+              backgroundColor: Color(0xFFFF412F),
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back, color: Colors.white),
                 onPressed: () => Navigator.of(context).pop(),
@@ -169,6 +178,7 @@ class _MerchantDetailsState extends State<MerchantDetails> {
               slivers: [
                 _buildImageSection(dealData?['Deal Image'] ?? ''),
                 _buildDetailsSection(dealData?['Category'] ?? 'N/A', dealData?['Rating'].toString() ?? 'N/A'),
+                _buildLocationSection(dealData?['Google Maps Link'] ?? ''), // Add location section here
                 _buildCouponDetails(dealData?['Description'] ?? ''),
                 _buildReviewsSection(),
                 _buildReviewSection(),
@@ -206,6 +216,35 @@ class _MerchantDetailsState extends State<MerchantDetails> {
                 children: [
                   const Icon(Icons.star, color: Colors.amber, size: 24),
                   Text(' $rating', style: const TextStyle(fontSize: 18)),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+
+  Widget _buildLocationSection(String googleMapsLink) => SliverToBoxAdapter(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Available Location', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.location_pin, color: Color(0xFFFF412F)),
+                      SizedBox(width: 5),
+                      Text('Google Maps', style: TextStyle(fontSize: 16, color: Colors.grey)),
+                    ],
+                  ),
+                  GestureDetector(
+                    onTap: () => _launchURL(googleMapsLink),
+                    child: const Text('Open', style: TextStyle(fontSize: 16, color: Color(0xFFFF412F))),
+                  ),
                 ],
               ),
             ],
@@ -305,7 +344,7 @@ class _MerchantDetailsState extends State<MerchantDetails> {
               const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: _submitReview,
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                style: ElevatedButton.styleFrom(backgroundColor: Color(0xFFFF412F)),
                 child: const Text('Submit Review', style: TextStyle(color: Colors.white)),
               ),
               const SizedBox(height: 20),
@@ -343,7 +382,7 @@ class _MerchantDetailsState extends State<MerchantDetails> {
         child: ElevatedButton(
           onPressed: _getCoupon,
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.red,
+            backgroundColor: Color(0xFFFF412F),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
             padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
           ),
